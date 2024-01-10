@@ -1,0 +1,21 @@
+@import "../../../../colors.scss";
+
+input {
+  border: solid 1px #d9d9d9;
+  background-color: $white;
+  transition: all .3s;
+  color: $dark;
+  &:hover, &:focus {
+    border-color: $light-primary;
+  }
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(16,142,233,.2);
+  }
+}
+
+label {
+  .required {
+    color: $danger;
+  }
+}

@@ -1,33 +1,31 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthState } from './ngxs/states/auth.states';
-import { LoginComponent } from './login/login.component';
-import { TodosComponent } from './todos/todos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AuthenticationModule } from './authentication/authentication.module';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    TodosComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
+    AuthenticationModule,
     AppRoutingModule,
     NgxsModule.forRoot([AuthState], {
-      developmentMode: true
+      developmentMode: true,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  providers: [
-    provideClientHydration()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideClientHydration()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

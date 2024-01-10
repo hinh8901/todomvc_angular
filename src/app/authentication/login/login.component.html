@@ -1,0 +1,11 @@
+<section class="h-100vh w-100vw flex flex-center">
+  <form
+    class="wrapper p-28px br-10px"
+    class="rg-10px flex flex-column"
+    [formGroup]="formData"
+  >
+    <app-input label="Username" type="text" formControlName="username"></app-input>
+    <app-input label="Password" type="password" formControlName="password"></app-input>
+    <app-button type="button" class="pointer" (click)="onLogin()">Login</app-button>
+  </form>
+</section>

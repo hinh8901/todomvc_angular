@@ -1,4 +1,121 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@for $i from 1 through 1000 {
+  .m-#{$i}px {
+    margin: $i * 1px;
+  }
+  .mt-#{$i}px {
+    margin-top: $i * 1px;
+  }
+  .mr-#{$i}px {
+    margin-right: $i * 1px;
+  }
+  .mb-#{$i}px {
+    margin-bottom: $i * 1px;
+  }
+  .ml-#{$i}px {
+    margin-left: $i * 1px;
+  }
+
+  .p-#{$i}px {
+    padding: $i * 1px;
+  }
+  .pt-#{$i}px {
+    padding-top: $i * 1px;
+  }
+  .pr-#{$i}px {
+    padding-right: $i * 1px;
+  }
+  .pb-#{$i}px {
+    padding-bottom: $i * 1px;
+  }
+  .pl-#{$i}px {
+    padding-left: $i * 1px;
+  }
+  .px-#{$i}px {
+    padding-left: $i * 1px;
+    padding-right: $i * 1px;
+  }
+  .py-#{$i}px {
+    padding-top: $i * 1px;
+    padding-bottom: $i * 1px;
+  }
+
+  .br-#{$i}px {
+    border-radius: $i * 1px;
+  }
+
+  .lh-#{$i}px {
+    line-height: $i * 1px;
+  }
+
+  .fz-#{$i}px {
+    font-size: $i * 1px;
+  }
+
+  .g-#{$i}px {
+    gap: $i * 1px;
+  }
+
+  .rg-#{$i}px {
+    row-gap: $i * 1px;
+  }
+
+  .cg-#{$i}px {
+    column-gap: $i * 1px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .w-#{$i}per {
+    width: $i * 1%;
+  }
+  .h-#{$i}per {
+    height: $i * 1%;
+  }
+  .w-#{$i}vw {
+    width: $i * 1vw;
+  }
+  .h-#{$i}vh {
+    height: $i * 1vh;
+  }
+
+  .br-#{$i}pr {
+    border-radius: $i * 1%;
+  }
+
+  .lh-#{$i} {
+    line-height: $i;
+  }
+}
