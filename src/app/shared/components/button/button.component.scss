@@ -6,10 +6,14 @@ button {
   outline: none;
   border: none;
   transition: all .3s;
-  &:hover {
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .6;
+  }
+  &:not(.disabled):hover {
     background-color: $light-primary;
   }
-  &:active {
+  &:not(.disabled):active {
     background-color: $dark-primary;
   }
 }

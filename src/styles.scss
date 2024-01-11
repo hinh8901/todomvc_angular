@@ -31,7 +31,19 @@ body {
   cursor: pointer;
 }
 
-@for $i from 1 through 1000 {
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+@for $i from 0 through 1000 {
   .m-#{$i}px {
     margin: $i * 1px;
   }
@@ -95,9 +107,33 @@ body {
   .cg-#{$i}px {
     column-gap: $i * 1px;
   }
+
+  .z-#{$i} {
+    column-gap: $i;
+  }
+
+  .z--#{$i} {
+    column-gap: $i * (-1);
+  }
+
+  .l-#{$i}px {
+    left: $i * 1px;
+  }
+
+  .r-#{$i}px {
+    right: $i * 1px;
+  }
+
+  .t-#{$i}px {
+    top: $i * 1px;
+  }
+
+  .b-#{$i}px {
+    bottom: $i * 1px;
+  }
 }
 
-@for $i from 1 through 100 {
+@for $i from 0 through 100 {
   .w-#{$i}per {
     width: $i * 1%;
   }

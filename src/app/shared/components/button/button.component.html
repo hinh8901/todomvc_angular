@@ -1,3 +1,8 @@
-<button class="pointer fz-14px px-15px py-5px br-4px">
+<button
+  class="pointer fz-14px px-15px py-5px br-4px"
+  [disabled]="disabled"
+  [class.disabled]="disabled"
+  (click)="onClick?.()"
+>
   <ng-content></ng-content>
 </button>

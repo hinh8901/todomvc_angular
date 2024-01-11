@@ -5,6 +5,8 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -12,7 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     AuthenticationRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FontAwesomeModule
   ],
 })
 export class AuthenticationModule {}

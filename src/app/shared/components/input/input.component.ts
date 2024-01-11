@@ -11,34 +11,51 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => InputComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class InputComponent {
-  @Input() type?: HTMLInputElement['type']
-  @Input() label?: string
-  @Input() placeholder?: HTMLInputElement['placeholder'] = ""
-  @Input() required?: boolean
+  @Input() type?: HTMLInputElement['type'];
+  @Input() label?: string;
+  @Input() placeholder?: HTMLInputElement['placeholder'] = '';
+  @Input() required?: boolean;
+  @Input() autocomplete?: HTMLInputElement['autocomplete'] = 'off';
+  @Input() value?: string | number = '';
+  @Input() onFocus?: (event: Event) => void;
 
-  id!: string
+  id!: string;
 
   constructor(private uniqueIdService: UniqueIdService) {}
 
   ngOnInit() {
-    this.id = this.uniqueIdService.generateUniqueId()
+    this.id = this.uniqueIdService.generateUniqueId();
   }
 
-  writeValue(value: any): void {  
-    // this.control.setValue(value, { emitEvent: false });  
-  }  
-  
-  registerOnChange(fn: (value: any) => void): void {  
-    // this.onChange = fn;  
-    // this.control.valueChanges.subscribe(fn);  
-  }  
-  
-  registerOnTouched(fn: () => void): void {  
-    // this.onTouched = fn;  
+  onChange(_value: string) {}
+  onTouched(_value: string) {}
+
+  writeValue(value: string) {
+    this.value = value;
+  }
+
+  registerOnChange(fn: (value: string) => void) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void) {
+    this.onTouched = fn;
+  }
+
+  handleOnChange(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const value = target.value;
+
+    this.onChange(value);
+    this.writeValue(value);
+  }
+
+  handleOnFocus(event: Event) {
+    this?.onFocus?.(event);
   }
 }

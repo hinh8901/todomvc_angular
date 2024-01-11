@@ -1,11 +1,22 @@
 <section class="h-100vh w-100vw flex flex-center">
-  <form
+  <div class="fixed fz-10px t-0px r-0px p-10px">
+    <p>Username: kminchelle</p>
+    <p>Pass: 0lelplR</p>
+  </div>
+  <div
     class="wrapper p-28px br-10px"
     class="rg-10px flex flex-column"
     [formGroup]="formData"
   >
-    <app-input label="Username" type="text" formControlName="username"></app-input>
-    <app-input label="Password" type="password" formControlName="password"></app-input>
-    <app-button type="button" class="pointer" (click)="onLogin()">Login</app-button>
-  </form>
+    <div>
+      <app-input label="Username" type="text" formControlName="username" [onFocus]="onFocusInput"></app-input>
+      <app-message *ngIf="formData.controls?.['username']?.errors?.['required']">Username is required</app-message>
+    </div>
+    <app-input label="Password" type="password" formControlName="password" [onFocus]="onFocusInput"></app-input>
+    <span text-danger *ngIf="!!errorMessage" class="fz-12px">{{ errorMessage }}</span>
+    <app-button type="button" [onClick]="onLogin">
+      <fa-icon [icon]="loadingIcon" [spin]="isLoading" *ngIf="isLoading; else loginText"></fa-icon>
+      <ng-template #loginText>Login</ng-template>
+    </app-button>
+  </div>
 </section>
